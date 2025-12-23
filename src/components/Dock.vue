@@ -41,7 +41,6 @@ onMounted(() => {
   <div class="app-wrapper">
     <div class="tab-viewport">
       <div v-if="activeTab === 1">
-        <h1 class="sticky-title">Функции</h1>
         <PillTabs class="tabs">
           <template #all-content>
             <div class="card-grid">
@@ -181,13 +180,5 @@ onMounted(() => {
 
 .tabs {
   margin-top: 20px;
-}
-.sticky-title {
-  width: 100%;
-  position: sticky;
-  top: 0;
-  z-index: 99999;
-  background: var(--bg-color);
-  padding: 5px 0px;
 }
 </style>

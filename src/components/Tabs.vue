@@ -1,40 +1,29 @@
 <script setup>
-import { onMounted, ref } from "vue";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-gsap.registerPlugin(ScrollTrigger);
+import { ref } from "vue";
+
 // The state that controls which content is shown
 const activeValue = ref("all");
-const tabListRef = ref(null);
 
 const tabs = [
   { label: "Все", value: "all" },
   { label: "Избранные", value: "favorites" },
 ];
-
-// onMounted(() => {
-//   gsap.to(tabListRef.value, {
-//     // scrollTrigger: {
-//     //   trigger: tabListRef.value,
-//     //   start: "top 15%",
-//     //   scrub: true,
-//     // },
-//     padding: "22px 0px",
-//   });
-// });
 </script>
 
 <template>
   <div class="tabs-root">
-    <div class="tabs-list" ref="tabListRef">
-      <button
-        v-for="tab in tabs"
-        :key="tab.value"
-        @click="activeValue = tab.value"
-        :class="['tab-trigger', { active: activeValue === tab.value }]"
-      >
-        {{ tab.label }}
-      </button>
+    <div class="tabs-list">
+      <h1>Функции</h1>
+      <div>
+        <button
+          v-for="tab in tabs"
+          :key="tab.value"
+          @click="activeValue = tab.value"
+          :class="['tab-trigger', { active: activeValue === tab.value }]"
+        >
+          {{ tab.label }}
+        </button>
+      </div>
     </div>
 
     <div class="tab-viewport">
@@ -72,12 +61,13 @@ const tabs = [
 /* Container for the tab buttons */
 .tabs-list {
   display: flex;
-  gap: 8px;
-
+  gap: 20px;
+  flex-direction: column;
   width: 100%;
   margin-bottom: 24px;
   position: sticky;
-  top: 45px;
+  top: 0;
+  padding: 10px 0px;
   z-index: 99999;
   background: var(--bg-color);
 }
