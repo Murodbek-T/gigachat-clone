@@ -144,6 +144,7 @@ onMounted(() => {
   cursor: pointer;
   width: 60px;
   border-radius: 50px;
+  -webkit-tap-highlight-color: transparent !important;
 }
 
 .icon-circle {
@@ -186,6 +187,5 @@ onMounted(() => {
   z-index: 99999;
   background: var(--bg-color);
   padding: 5px 0px;
-
 }
 </style>
