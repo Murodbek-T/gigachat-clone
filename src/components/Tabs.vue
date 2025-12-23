@@ -1,18 +1,32 @@
 <script setup>
-import { ref } from "vue";
-
+import { onMounted, ref } from "vue";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 // The state that controls which content is shown
 const activeValue = ref("all");
+const tabListRef = ref(null);
 
 const tabs = [
   { label: "Все", value: "all" },
   { label: "Избранные", value: "favorites" },
 ];
+
+onMounted(() => {
+  gsap.to(tabListRef.value, {
+    scrollTrigger: {
+      trigger: tabListRef.value,
+      start: "top 15%",
+      scrub: true,
+    },
+    padding: "20px 0px",
+  });
+});
 </script>
 
 <template>
   <div class="tabs-root">
-    <div class="tabs-list">
+    <div class="tabs-list" ref="tabListRef">
       <button
         v-for="tab in tabs"
         :key="tab.value"
@@ -59,10 +73,13 @@ const tabs = [
 .tabs-list {
   display: flex;
   gap: 8px;
-  padding: 4px;
-  border-radius: 50px;
-  width: max-content;
+
+  width: 100%;
   margin-bottom: 24px;
+  position: sticky;
+  top: 45px;
+  z-index: 99999;
+  background: var(--bg-color);
 }
 
 /* Individual pill buttons */

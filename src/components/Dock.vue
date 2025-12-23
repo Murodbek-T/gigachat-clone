@@ -41,7 +41,7 @@ onMounted(() => {
   <div class="app-wrapper">
     <div class="tab-viewport">
       <div v-if="activeTab === 1">
-        <h1>Функции</h1>
+        <h1 class="sticky-title">Функции</h1>
         <PillTabs class="tabs">
           <template #all-content>
             <div class="card-grid">
@@ -143,6 +143,7 @@ onMounted(() => {
   align-items: center;
   cursor: pointer;
   width: 60px;
+  border-radius: 50px;
 }
 
 .icon-circle {
@@ -177,5 +178,11 @@ onMounted(() => {
 
 .tabs {
   margin-top: 20px;
+}
+.sticky-title{
+  position: sticky;
+  top: 0;
+  z-index: 99999;
+  background: var(--bg-color);
 }
 </style>

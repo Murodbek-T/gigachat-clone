@@ -17,7 +17,7 @@ onMounted(() => {
       end: "top 20%",
       scrub: true,
     },
-    opacity: 0.5,
+    opacity: 0.3,
   });
 });
 </script>
