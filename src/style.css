@@ -8,10 +8,12 @@
   --bg-color: #fff;
   --accent-color: #3793ff;
   --dock-bg: rgba(0, 0, 0, 0.05);
+  --dock-glass-bg: rgba(0, 0, 0, 0.1);
   --dock-border: rgba(0, 0, 0, 0.1);
-  --dock-active-circle: transparent;
+  --dock-active-circle: white;
   --icon-filter: invert(0);
-  
+  --tab-hover-color: rgba(98, 98, 98, 0.723);
+  --menu-hover-color: rgba(81, 81, 81, 0.552);
   --text-small: 18px;
   --text-medium: 24px;
   --text-large: 38px;
@@ -45,6 +47,8 @@ a {
     --dock-border: rgba(255, 255, 255, 0.1);
     --dock-active-circle: #1a1a1a;
     --icon-filter: invert(1);
+    --tab-hover-color: rgba(98, 98, 98, 0.723);
+    --menu-hover-color: rgba(81, 81, 81, 0.552);
   }
 }
 
@@ -52,19 +56,25 @@ a {
 [data-theme="dark"] {
   --bg-color: #121212;
   --text-color: #f0f0f0;
-  --dock-bg: rgba(255, 255, 255, 0.1);
+  --dock-bg: rgba(255, 255, 255, 0.2);
   --dock-border: rgba(255, 255, 255, 0.1);
   --dock-active-circle: #1a1a1a;
+  --dock-glass-bg: rgba(0, 0, 0, 0.1);
   --icon-filter: invert(1);
+  --tab-hover-color: rgba(98, 98, 98, 0.723);
+  --menu-hover-color: rgba(81, 81, 81, 0.552);
 }
 
 [data-theme="light"] {
   --bg-color: #fff;
   --text-color: #121212;
-  --dock-bg: rgba(0, 0, 0, 0.05);
+  --dock-bg: rgba(0, 0, 0, 0.2);
   --dock-border: rgba(0, 0, 0, 0.1);
-  --dock-active-circle: transparent;
+  --dock-active-circle: white;
+  --dock-glass-bg: rgba(255, 255, 255, 0.1);
   --icon-filter: invert(0);
+  --tab-hover-color: rgba(214, 214, 214, 0.723);
+  --menu-hover-color: rgba(206, 206, 206, 0.327);
 }
 button {
   background: transparent;

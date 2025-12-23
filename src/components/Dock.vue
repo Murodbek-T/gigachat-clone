@@ -5,7 +5,7 @@ import Cards from "./Cards.vue";
 import { cardsContent } from "../data/data";
 import gsap from "gsap";
 import History from "./History.vue";
-import Profile from "./Profile.vue"
+import Profile from "./Profile.vue";
 
 const activeTab = ref(1);
 
@@ -50,26 +50,30 @@ onMounted(() => {
           </template>
         </PillTabs>
       </div>
-      <div v-if="activeTab === 2"><h1>История</h1>
-      <History />
+      <div v-if="activeTab === 2">
+        <h1>История</h1>
+        <History />
       </div>
-      <div v-if="activeTab === 3"><h1>Профиль</h1>
-      <Profile />
+      <div v-if="activeTab === 3">
+        <h1>Профиль</h1>
+        <Profile />
       </div>
     </div>
 
     <nav class="dock-container">
       <div class="dock-glass">
         <div
+          class="sliding-pill"
+          :style="{ transform: `translateX(${(activeTab - 1) * 72}px)` }"
+        ></div>
+
+        <div
           v-for="item in dockButtons"
           :key="item.id"
           class="dock-item"
           @click="activeTab = item.id"
         >
-          <div
-            class="icon-circle"
-            :class="{ 'is-active': activeTab === item.id }"
-          >
+          <div class="icon-circle">
             <img :src="item.icon" class="dock-icon" />
           </div>
           <span
@@ -91,26 +95,49 @@ onMounted(() => {
 }
 
 .dock-container {
+  display: flex;
+  width: 100%;
+  padding-bottom: 40px;
+  justify-content: center;
+  align-items: center;
   position: fixed;
-  bottom: 50px;
+  bottom: 0px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 1000;
+  background: var(--dock-glass-bg);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+  box-shadow: 0px -10px 20px var(--dock-glass-bg);
 }
 
 .dock-glass {
+  position: relative; /* Required for absolute positioning of pill */
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 2px;
+  padding: 3px 2px;
   background: var(--dock-bg);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--dock-border);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border-radius: 50px;
 }
 
+/* The element that slides */
+.sliding-pill {
+  position: absolute;
+  left: 2px;
+  width: 60px;
+  height: 50px;
+  background: var(--dock-active-circle);
+  border-radius: 50px;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  z-index: 0;
+}
+
 .dock-item {
+  position: relative;
+  z-index: 1; /* Icons stay above the sliding pill */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -119,20 +146,14 @@ onMounted(() => {
 }
 
 .icon-circle {
-  width: 48px;
-  height: 48px;
+  width: 60px;
+  height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 50%;
+  border-radius: 50px;
   transition: background 0.3s ease;
 }
-
-.icon-circle.is-active {
-  background: var(--dock-active-circle);
-  border: 2px solid black;
-}
-
 
 .dock-icon {
   width: 24px;

@@ -1,7 +1,14 @@
 <script setup>
 import { ref } from "vue";
-import ThemeToggle from "./ThemeToggle.vue"
-
+import ThemeToggle from "./ThemeToggle.vue";
+// Component Icons
+import Web from "./icons/Web.vue";
+import Vk from "./icons/Vk.vue";
+import SettingsIcon from "./icons/SettingsIcon.vue";
+import QuestionIcon from "./icons/QuestionIcon.vue";
+import BotIcon from "./icons/BotIcon.vue";
+import FeedbackIcon from "./icons/FeedbackIcon.vue";
+import ChevronRightIcon from "./icons/ChevronRightIcon.vue";
 // State to manage which 'window' is visible
 const currentView = ref("main"); // options: 'main', 'settings', 'about', etc.
 
@@ -9,22 +16,22 @@ const menuItems = [
   {
     id: "settings",
     title: "Настройки",
-    icon: new URL("../assets/icons/settings.svg", import.meta.url).href,
+    icon: SettingsIcon,
   },
   {
     id: "about",
     title: "Про GigaChat",
-    icon: new URL("../assets/icons/web.svg", import.meta.url).href,
+    icon: BotIcon,
   },
   {
     id: "feedback",
     title: "Поделиться мнением",
-    icon: new URL("../assets/icons/feedback.svg", import.meta.url).href,
+    icon: FeedbackIcon,
   },
   {
     id: "support",
     title: "Написать в поддержку",
-    icon: new URL("../assets/icons/question.svg", import.meta.url).href,
+    icon: QuestionIcon,
   },
 ];
 </script>
@@ -46,23 +53,29 @@ const menuItems = [
           @click="currentView = item.id"
         >
           <div class="row-left">
-            <span class="row-icon"
-              ><img :src="item.icon" alt="icon" width="25"
-            /></span>
+            <component :is="item.icon" class="row-icon" />
             <span class="row-title">{{ item.title }}</span>
           </div>
-          <span class="chevron">›</span>
+
+          <ChevronRightIcon />
         </div>
       </div>
+      <div class="separator"></div>
 
       <div class="menu-section">
         <div class="menu-row">
-          <span class="row-title">GigaChat в веб-версии</span>
-          <span class="chevron">›</span>
+          <span class="row-title">
+            <Web />
+            GigaChat в веб-версии</span
+          >
+          <ChevronRightIcon />
         </div>
         <div class="menu-row">
-          <span class="row-title">GigaChat в VK</span>
-          <span class="chevron">›</span>
+          <span class="row-title">
+            <Vk />
+            GigaChat в VK</span
+          >
+          <ChevronRightIcon />
         </div>
       </div>
 
@@ -109,7 +122,7 @@ const menuItems = [
   width: 100%;
   padding: 16px;
   background-color: #00d38d;
-  color: var(--text-color);
+  color: var(--bg-color);
   border: none;
   border-radius: 16px;
   font-size: 16px;
@@ -119,20 +132,21 @@ const menuItems = [
 }
 
 .menu-section {
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 .menu-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 7px 12px;
+  padding: 10px 12px;
+  margin-bottom: 5px;
   cursor: pointer;
-  border-radius: 20px;
+  border-radius: 50px;
 }
 
 .menu-row:hover {
-  background: rgba(81, 81, 81, 0.552);
+  background: var(--menu-hover-color);
 }
 
 .row-left {
@@ -143,11 +157,14 @@ const menuItems = [
 
 .row-icon {
   font-size: 20px;
-  width: 24px;
+  width: 20px;
   text-align: center;
 }
 
 .row-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   font-size: 16px;
   font-weight: 500;
 }
@@ -163,6 +180,7 @@ const menuItems = [
   font-weight: 600;
   margin-top: 20px;
   cursor: pointer;
+  color: #00d38d;
 }
 
 /* Sub-view Styles */
@@ -170,7 +188,6 @@ const menuItems = [
   display: flex;
   align-items: center;
   gap: 16px;
-  margin-bottom: 24px;
 }
 
 .back-btn {
@@ -191,6 +208,13 @@ const menuItems = [
   color: var(--text-muted);
   text-align: center;
   margin-top: 40px;
+}
+
+.separator {
+  background: var(--dock-bg);
+  width: 100%;
+  height: 1px;
+  margin: 10px 0px;
 }
 
 /* Animations */

@@ -59,7 +59,6 @@ const tabs = [
 .tabs-list {
   display: flex;
   gap: 8px;
-  background-color: var(--pill-bg, rgba(255, 255, 255, 0.1));
   padding: 4px;
   border-radius: 50px;
   width: max-content;
@@ -74,15 +73,19 @@ const tabs = [
   font-weight: 600;
   cursor: pointer;
   border: none;
-  background: transparent;
+  background: var(--dock-bg);
   color: var(--text-color);
   transition: all 0.2s ease;
 }
 
+.tab-trigger:hover {
+  background-color: var(--tab-hover-color);
+}
+
 /* Active state matching your screenshot */
 .tab-trigger.active {
-  background-color: var(--pill-active-bg, #ffffff);
-  color: var(--pill-active-text, #121212);
+  background-color: var(--text-color);
+  color: var(--bg-color);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
