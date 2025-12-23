@@ -59,15 +59,19 @@ const tabs = [
 
 <style scoped>
 /* Container for the tab buttons */
+
+.tabs[data-v-bb414dd2]{
+  margin: 0;
+}
 .tabs-list {
   display: flex;
   gap: 20px;
   flex-direction: column;
   width: 100%;
   margin-bottom: 24px;
+  padding-bottom: 15px;
   position: sticky;
   top: 0;
-  padding: 10px 0px;
   z-index: 99999;
   background: var(--bg-color);
 }

@@ -89,7 +89,7 @@ onMounted(() => {
 
 <style scoped>
 .app-wrapper {
-  padding: 20px;
+  padding: 0px 10px;
   min-height: 100vh;
 }
 
