@@ -179,10 +179,13 @@ onMounted(() => {
 .tabs {
   margin-top: 20px;
 }
-.sticky-title{
+.sticky-title {
+  width: 100%;
   position: sticky;
   top: 0;
   z-index: 99999;
   background: var(--bg-color);
+  padding: 5px 0px;
+
 }
 </style>

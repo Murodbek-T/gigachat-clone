@@ -19,7 +19,7 @@ onMounted(() => {
       start: "top 15%",
       scrub: true,
     },
-    padding: "20px 0px",
+    padding: "22px 0px",
   });
 });
 </script>
