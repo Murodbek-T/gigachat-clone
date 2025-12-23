@@ -18,6 +18,5 @@ onBeforeMount(() => {
 .main-container {
   padding: 15px;
   border-radius: 30px !important;
- background: red;
 }
 </style>

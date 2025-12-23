@@ -109,6 +109,8 @@ onMounted(() => {
   backdrop-filter: blur(7px);
   -webkit-backdrop-filter: blur(7px);
   box-shadow: 0px -10px 20px var(--dock-glass-bg);
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
 }
 
 .dock-glass {
