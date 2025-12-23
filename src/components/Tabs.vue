@@ -12,16 +12,16 @@ const tabs = [
   { label: "Избранные", value: "favorites" },
 ];
 
-onMounted(() => {
-  gsap.to(tabListRef.value, {
-    scrollTrigger: {
-      trigger: tabListRef.value,
-      start: "top 15%",
-      scrub: true,
-    },
-    padding: "22px 0px",
-  });
-});
+// onMounted(() => {
+//   gsap.to(tabListRef.value, {
+//     // scrollTrigger: {
+//     //   trigger: tabListRef.value,
+//     //   start: "top 15%",
+//     //   scrub: true,
+//     // },
+//     padding: "22px 0px",
+//   });
+// });
 </script>
 
 <template>

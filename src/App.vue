@@ -17,6 +17,7 @@ onBeforeMount(() => {
 <style scoped>
 .main-container {
   padding: 15px;
-  border-radius: 20px;
+  border-radius: 30px !important;
+ 
 }
 </style>
